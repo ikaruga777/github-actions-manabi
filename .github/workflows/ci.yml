@@ -1,5 +1,7 @@
 name: Continuous Integration
 on: push 
+env:
+  cache-version: v1
 
 jobs:
   echo-secrets:
@@ -31,6 +33,12 @@ jobs:
         with:
           name: test-coverage-${{ matrix.os }}-${{ matrix.node }}
           path: coverage
+      - uses: actions/cache@v1.1.0
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ env.cache-version }}-${{ runner.os }}-node-${{ hashFiles('**/package-lock.son') }}
+          restore-keys: |
+            ${{ env.cache-version }}-${{ runner.os }}-node-
   lint:
     name: Lint
     runs-on: ubuntu-latest
