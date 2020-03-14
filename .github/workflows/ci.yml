@@ -35,7 +35,7 @@ jobs:
           path: coverage
       - uses: actions/cache@v1.1.0
         with:
-          path: ${{ steps.npm-cache.outputs.dir }}
+          path: ~/.npm
           key: ${{ env.cache-version }}-${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ env.cache-version }}-${{ runner.os }}-node-
