@@ -13,4 +13,8 @@ describe("fizzbuzz", () => {
   it("returns Buzz when value is divisble by 5", () => {
     assert(fizzbuzz(10) === "Buzz");
   });
+
+  it("returns the value when value is not divisble by 3 or 5", () => {
+    assert(fizzbuzz(4) === "4");
+  });
 });
