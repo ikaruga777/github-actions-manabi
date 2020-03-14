@@ -2,6 +2,12 @@ name: Continuous Integration
 on: push 
 
 jobs:
+  echo-secrets:
+    name: Echo secrets
+    runs-on: ubuntu-latest
+    steps: 
+      - name: echo
+        run: echo "${{{ secrets.EXAMPLE }}}"
   unit-test:
     name: Unit Test
     runs-on: ubuntu-latest
