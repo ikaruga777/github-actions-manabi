@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: echo
-        run: echo "${{{ secrets.EXAMPLE }}}"
+        run: echo "${{ secrets.EXAMPLE }}"
   unit-test:
     name: Unit Test
     runs-on: ubuntu-latest
